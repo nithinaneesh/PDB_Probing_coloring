@@ -1,0 +1,5 @@
+uploads/
+*.pyc
+*.*~
+logs/
+temp/
