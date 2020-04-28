@@ -17,9 +17,6 @@ The file with modified b_factor can be used to visualize the reactivities in str
 
 - -c - which part of RNA to change b_factor: {all,base,back,sugar,basesug,backsug}
 
-**how to color newly obtained pdb in PyMOL**
-
-You can either use my super PyMOL script, provided in this repo or type in PyMOL command line: `spectrum b, white_paleyellow_yellow_red_brown_grey, minimum=-0.25, maximum=1.25, byres=1`.
 
 **Inputs**
 
@@ -43,6 +40,11 @@ Single-line format:
 ```
 0.87	1	1	0.56	0.21	0.2	0.08	0.17	0.1	0.17...
 ```
+
+**How to color newly obtained pdb in PyMOL**
+
+You can either use my super PyMOL script, provided in this repo or type in PyMOL 
+command line: `spectrum b, white_paleyellow_yellow_red_brown_grey, minimum=-0.25, maximum=1.25, byres=1`.
 
 
 ### PyMOL plugin
