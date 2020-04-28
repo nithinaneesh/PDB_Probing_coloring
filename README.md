@@ -1,7 +1,24 @@
 # PDB_Probing_coloring
 
 
+## PyMOL plugin
 
+The repository has a nice accompaniyng PyMOL plugin `Pymol_plugin_Probing_coloring.py`.
+
+Installaition of the plugin:
+
+1. Open PyMOL
+2. Click `Plugin` button on top of the window
+3. Click `Plugin Manager` from the list
+4. Go to `Install New Plugin` tab
+5. Click `Choose file...` button
+6. Select the `Pymol_plugin_Probing_coloring.py` plugin
+7. Click `OK`
+8. Your plugin is installed! Very nice!
+
+Usage:
+
+In PyMOL command line type one of the three: `shape`, `dms`, `cmct`; and enjoy very nice cartoon representation colored by the probing scheme.
 
 ## Prerequisites
 
