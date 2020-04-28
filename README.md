@@ -92,3 +92,7 @@ pip3 install pandas
 ```
 pip3 install argparse
 ```
+
+#### Make the script executable
+
+`chmod a+x probing_bfactor_pdb.py`
