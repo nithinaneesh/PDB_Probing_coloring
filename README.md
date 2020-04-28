@@ -1,11 +1,48 @@
 # PDB_Probing_coloring
 
+Python script for chaniging b_factor values in a PDB file to values representing RNA chemical probing reactivies.
+The file with modified b_factor can be used to visualize the reactivities in structure visualization tool such as PyMOL or Chimera.
 
-## PyMOL plugin
+## Usage:
+
+`./probing_bfactor_pdb.py -i test.pdb -r react_sheet.txt -c back`
+
+**Options:**
+
+-i - Input file
+-o - output file name, if not set, the new file will be generated with addition of which part of RNA was modified (e.g., base, sugar)
+-r - file with probing reactivities
+-c - which part of RNA to change b_factor: {all,base,back,sugar,basesug,backsug}
+
+**Inputs**
+
+PDB file - PDB file with RNA structure, must have one structure (chain), residue numbering from one (1)
+
+Reactivity file - file with reactivities, script accepts two formats: Ractivity format as in RNAfold or RNAProbe; single-line txt file with reactivities copied from a google sheet (values tab-separated).
+
+Ractivity format:
+```
+1 0.0
+2 0.0
+3 0.0
+4 0.01
+5 0.0
+6 0.7
+7 0.05
+...
+```
+
+Single-line format:
+```
+0.87	1	1	0.56	0.21	0.2	0.08	0.17	0.1	0.17...
+```
+
+
+### PyMOL plugin
 
 The repository has a nice accompaniyng PyMOL plugin `Pymol_plugin_Probing_coloring.py`.
 
-Installaition of the plugin:
+**Installaition of the plugin:**
 
 1. Open PyMOL
 2. Click `Plugin` button on top of the window
@@ -16,11 +53,11 @@ Installaition of the plugin:
 7. Click `OK`
 8. Your plugin is installed! Very nice!
 
-Usage:
+**Usage:**
 
 In PyMOL command line type one of the three: `shape`, `dms`, `cmct`; and enjoy very nice cartoon representation colored by the probing scheme.
 
-## Prerequisites
+### Prerequisites
 
 #### Python 3
 
