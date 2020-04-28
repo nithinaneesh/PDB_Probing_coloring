@@ -9,13 +9,13 @@ The file with modified b_factor can be used to visualize the reactivities in str
 
 **Options:**
 
-- i - Input file
+- -i - Input file
 
-- o - output file name, if not set, the new file will be generated with addition of which part of RNA was modified (e.g., base, sugar)
+- -o - output file name, if not set, the new file will be generated with addition of which part of RNA was modified (e.g., base, sugar)
 
-- r - file with probing reactivities
+- -r - file with probing reactivities
 
-- c - which part of RNA to change b_factor: {all,base,back,sugar,basesug,backsug}
+- -c - which part of RNA to change b_factor: {all,base,back,sugar,basesug,backsug}
 
 **Inputs**
 
