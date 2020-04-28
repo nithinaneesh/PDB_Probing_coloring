@@ -21,7 +21,7 @@ def argument_parser():
                         help="Name of output PDB file.")
     parser.add_argument("-c", "--color_by", required=False, dest="color", default='all', choices=['all', 'base',
                         'back', 'sugar','basesug', 'backsug'],
-                        help="Color of output images")
+                        help="Which part of RNA will have raectivities as b factor")
 
 
     args = parser.parse_args()
@@ -35,7 +35,7 @@ def argument_parser():
 
 def change_bfactor():
     
-    print(pdb_in_list)
+    #print(pdb_in_list)
     print(reactivities_df)
     print(reactivities_df.shape[0])
 
@@ -59,42 +59,21 @@ def change_bfactor():
     pdb_out_list = pdb_in_list.copy()
     
     
-    kok = '  23'
-    lol = int(kok)
-    print(lol)
-    
-
-    for i in range(0, reactivities_df.shape[0]):
-        #print(i+1)
-        for k in range(0, len(pdb_in_list)):
-            #print(pdb_in_list[k][13:16])
-            if int(pdb_in_list[k][22:26]) == i:
+    for i in range(0, reactivities_df.shape[0]):  # go through the reactivity df
+        for k in range(0, len(pdb_in_list)):  # go through the whole pdb
+            if int(pdb_in_list[k][22:26]) == i:  # check residue number and get pdb rows of sthis residue 
                 line = list(pdb_out_list[k])
-                if pdb_in_list[k][13:16] in color:
-                    #line = list(pdb_out_list[k])
-                    #print(pdb_out_list[k])
-                    #print(line[60:66])
-                    #print(list(str(reactivities_df.iloc[i]["react"])))
+                if pdb_in_list[k][13:16] in color:  # check if the atom is in color list, and change bfactor if yes 
                     re = list(str("%.2f" % reactivities_df.iloc[i]["react"]))
-                    #print("%.2f" % reactivities_df.iloc[i]["react"])
-                    #print(pdb_in_list[k][60:66])
-                    #print([" ", " "]+re) 
                     put = [" ", " "]+re
                     line[60:66] = put
-                    #print(put)
-                    #print(''.join(line))
                     line = ''.join(line)
-                    #print('23 uuuu', i, k)
-                    #pdb_out_list[k] = line
-                    #pdb_out_list[k][60:66] = ''
-                else:
+                else:  # color other atoms to grey (b factor 1.25)
                     put = [" ", " ", "1", ".", "2", "5"]
                     line[60:66] = put
                     line = ''.join(line)
                 pdb_out_list[k] = line
        
-    print(reactivities_df)
-    print(reactivities_df.iloc[10]["react"])
 
     print(pdb_out_list)
     out= open("out.pdb", "w")
