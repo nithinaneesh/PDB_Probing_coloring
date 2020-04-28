@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-
 import pandas as pd
 import argparse
 from argparse import RawTextHelpFormatter
@@ -61,6 +60,7 @@ def write_output(pdb_out_list):
         outfile_name = in_pdb.replace('.pdb','') + '_' + color_by + '.pdb'
     else:
         outfile_name = out_pdb    
+
     out= open(outfile_name, "w")
     for i in pdb_out_list:
         out.write(i)
