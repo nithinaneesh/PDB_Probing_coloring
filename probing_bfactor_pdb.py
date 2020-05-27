@@ -51,6 +51,7 @@ def change_bfactor():
     pdb_range = list(range(pdb_stop_color, pdb_len))
     #print(pdb_range)
     df_index_to_color=seq_start_index 
+    print(pdb_range)
     for i in range(df_index_to_color, reactivities_df.shape[0]-seq_end_index):  # go through the reactivity df
         for k in range(0, len(pdb_in_list)):  # go through the whole pdb
             if (int(pdb_in_list[k][22:26]) == pdb_index_to_color) and (int(pdb_in_list[k][22:26]) not in pdb_range):  # check residue number and get pdb rows of sthis residue 
@@ -71,12 +72,6 @@ def change_bfactor():
                 line[60:66] = put
                 line = ''.join(line)
                 pdb_out_list[k] = line
-            else:
-                line = list(pdb_out_list[k])
-                put = [" ", " ", "1", ".", "2", "5"]
-                line[60:66] = put
-                line = ''.join(line)
-                pdb_out_list[k] = line
 
         pdb_index_to_color+=1
     
@@ -92,7 +87,8 @@ def change_bfactor():
 def write_output(pdb_out_list):
     
     if out_pdb == '':
-        outfile_name = in_pdb.replace('.pdb','') + '_' + color_by + '.pdb'
+        outfile_name = reactivity.replace('.react','') + '_' + color_by + '.pdb'
+    #    outfile_name = in_pdb.replace('.pdb','') + '_' + color_by + '.pdb'
     else:
         outfile_name = out_pdb    
 
@@ -157,7 +153,7 @@ def read_sequence():
     #s.get_rnapuzzle_ready()
     #print(s)
     
-    #print(pdbSeq)    
+    print(pdbSeq)    
     #print(seq)
     lcs = ','.join(longest_common_substring(seq, pdbSeq))
 
