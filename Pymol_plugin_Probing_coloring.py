@@ -15,6 +15,7 @@ def shape():
     cmd.set("cartoon_ladder_mode", 2)
     cmd.set("cartoon_ring_transparency", 0.30)
     cmd.spectrum('b', 'white_paleyellow_yellow_red_brown_grey', minimum=-0.25, maximum=1.25, byres=1)
+    #cmd.spectrum('b', 'white_paleyellow_yellow_red_brown_grey', minimum=-250, maximum=1250, byres=1)
 
 
 def dms():
