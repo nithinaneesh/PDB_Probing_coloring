@@ -62,7 +62,11 @@ def change_bfactor():
                     line[60:66] = put
                     line = ''.join(line)
                 else:  # color other atoms to grey (b factor 1.25)
-                    put = [" ", " ", "1", ".", "2", "5"]
+                    if color_by == 'all':
+                        re = list(str("%.2f" % reactivities_df.iloc[i]["react"]))
+                        put = [" ", " "]+re
+                    else:
+                        put = [" ", " ", "1", ".", "2", "5"]
                     line[60:66] = put
                     line = ''.join(line)
                 pdb_out_list[k] = line
